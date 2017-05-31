@@ -1,0 +1,786 @@
+@import 'reset';
+
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700');
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+
+@import url('https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+//colors
+$almost-white: #f9f9f9;
+$dark-bg : #212429;
+$dark-text : #212121;
+$dark-icons : #464646;
+$gray-text : #999;
+$hover-gray : #999;
+
+//fonts
+$hind : 'Hind', sans-serif;
+$montserrat : 'Montserrat', sans-serif;
+$figure : 'Mrs Saint Delafield', cursive;
+$open-sans : 'Open Sans', sans-serif;
+
+@mixin flex-box($dir : row, $align-items : stretch, $justify-content : flex-start) {
+    display : flex;
+    flex-direction : $dir;
+    align-items : $align-items;
+    justify-content : $justify-content
+}
+
+@mixin text ($weight : 300, $size : 14px, $family : $hind, $letter-spacing : .1em, $line-height : 28px, $text-transform: none){
+    font : $weight $size $family;
+    letter-spacing: $letter-spacing;
+    line-height: $line-height;
+    text-transform : $text-transform;
+}
+
+a {
+    color: #fff;
+}
+
+.column {
+    @include flex-box(column, null, space-between);
+
+    font-size: 0;
+    line-height: 24px;
+
+    width: 360px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+
+    body {
+        position: relative;
+
+        min-height: 100%;
+
+        background-color: $almost-white;
+
+            .pseudoheader {
+                position: absolute;
+                top: 0;
+
+                width: 100%;
+                height: 345px;
+
+                background-color: $dark-bg;
+            }
+
+            .wrapper {
+                position: relative;
+
+                width: 1530px;
+                margin: 0 auto;
+
+                    header {
+                        @include flex-box(row, center, space-between);
+                        
+                        height: 55px;
+
+                        background-color: $dark-bg;
+
+                            .icon {
+                                padding: 0 18px 0 20px;
+
+                                    &:hover{
+                                        color: $hover-gray;
+                                    }
+                            }
+
+                            .btn-menu {
+                                @include flex-box(row, center, center);
+
+                                font-size: 23px;
+
+                                height: 100%;
+
+                                color: #fff;
+                                border: solid 1px #3c3c3c;
+                                border-width: 0 1px;
+                            }
+
+                            .logo {
+                                @include flex-box(row, center);
+
+                                height: 100%;
+                                margin-left: 277px;
+
+                                    span {
+                                        @include text(600, 22.15px, $hind, 4.5px, null, uppercase);
+
+                                        margin-top: 5px;
+                                        margin-left: 7.5px;
+
+                                        color: #fefefe;
+                                    }
+                            }
+                        .social{
+                            height: 100%;
+
+                                ul {
+                                    height: 100%;
+
+                                        li {
+                                            display: inline-block;
+
+                                            height: 100%;
+
+                                            border-left: solid 1px #3c3c3c;
+
+                                                &:last-child {
+                                                    border-right: solid 1px #3c3c3c;
+                                                }
+
+                                                a {
+                                                    @include flex-box(row, center, center);
+
+                                                    font-size: 15px;
+
+                                                    height: 100%;
+
+                                                    color: #fff;
+                                                }
+                                        }
+                                }
+                        }    
+                    }
+
+                    main {
+                        min-height: 100%;
+                        padding-bottom: 412px;
+
+                        background: $almost-white;
+
+                            .slider {
+                                position: relative;
+
+                                height: 580px;
+
+                                    .caption {
+                                        @include flex-box(row, center, space-between);
+
+                                        position: absolute;
+                                        top: 0;
+
+                                        width: 100%;
+                                        height: 100%;
+
+                                        color: #fff;
+
+                                            .content {
+                                                flex-direction: column;
+                                                margin-left : 97.5px;
+
+                                                    h2 {
+                                                        @include text(600, 18px, $hind, .2em, 24px);
+
+                                                        margin: -4px 0 14px 0;
+                                                    }
+
+                                                    h3 {
+                                                        @include text(600, 40px, $hind, .14em, 50px, uppercase);
+                                                    }
+                                            }
+
+                                            .navigation {
+                                                @include flex-box(column, center);
+
+                                                margin-right: -65px;
+
+                                                transform: rotate(-90deg);
+
+                                                    .indicators {
+                                                        display: flex;
+
+                                                        margin-bottom: 16px;
+
+                                                            .indicator {
+                                                                display: block;
+
+                                                                width: 8px;
+                                                                height: 8px;
+                                                                margin: 0 5px;
+
+                                                                border: solid 1px #fff;
+
+                                                                    &:hover {
+                                                                        background-color: rgba(255,255,255,.5);
+                                                                    }
+                                                            }
+
+                                                            .active {
+                                                                background-color: rgba(255,255,255,.5);
+                                                            }
+                                                    }
+
+                                                    .arrows {
+                                                                 @include flex-box(row, center);
+
+                                                                     a {
+                                                                        font-size: 27px;
+
+                                                                        margin-top: -5px;
+
+                                                                        color: #fff;
+
+                                                                            &:hover {
+                                                                                color: $hover-gray;
+                                                                            }
+                                                                    }
+
+                                                                    span {
+                                                                         @include text(600, 14px, $hind, .2em, null, uppercase);
+
+                                                                        margin: 0 12px;
+                                                                    }
+                                                    }
+                                            }
+                                    }
+                            }
+
+                            form {
+                                @include flex-box(row, center);
+
+                                width: 100%;
+                                height: 100px;
+
+                                border-bottom: solid 1px #f3f3f3;
+                                background-color: #f7f7f7;
+
+                                    .caption {
+                                        @include text(600, 20px, $montserrat, .2em, 28px, uppercase);
+
+                                        width: 200px;
+                                        margin-left: 30px;
+
+                                        color: $dark-text;
+                                    }
+
+                                    input {
+                                        @include text(300, 15px, $hind, .1em, 28px, uppercase);
+
+                                        width: 450px;
+                                        height: 50px;
+                                        margin-left: 30px;
+                                        padding: 8px 0 0 29px;
+
+                                        color: #a7a7a7;
+                                        border: solid 1px #f3f3f3;
+
+                                            &:focus {
+                                                border: solid 1px #ccc;
+                                                outline: none;
+                                            }
+
+                                            &.submit {
+                                                @include text(400, 14px, $hind, .2em, 24px, uppercase);
+
+                                                width: 282px;
+                                                padding-left: 0;
+
+                                                color: #fff;
+                                                background-color: $dark-text;
+
+                                                    &:hover {
+                                                        font-weight: 600;
+
+                                                        cursor: pointer;
+
+                                                        color: $dark-text;
+                                                        border-color: $dark-text;
+                                                        background-color: #f7f7f7;
+                                                    }
+                                            }
+                                    }
+                            }
+
+                            section.content{
+                                @include flex-box(row, null, space-between);
+
+                                padding: 77px 0 60px;
+                                
+                                    .content-item {
+                                        position: relative;
+
+                                        font-size: 14px;
+
+                                        width: 100%;
+
+                                        border: solid 1px #f1f1f3;
+                                        background: #fff;
+
+                                            &:hover {
+                                                box-shadow: 0 0 20px #dadadc;
+                                            }
+
+                                            
+                                            .image {
+                                                font-size: 0;
+                                                line-height: 0;
+
+                                                width: 100%;
+                                                height: 255px;
+
+                                                background: #f4f4f4;
+                                            }
+
+                                            .main {
+                                                padding: 0 30px;
+
+                                                text-align: center;
+
+                                                    
+                                                    &:hover button{
+                                                        color: $gray-text;
+                                                    }
+
+                                                    .hashtag {
+                                                        font-size: 14px;
+
+                                                        position: absolute;
+                                                        top: -18px;
+                                                        left: 160px;
+
+                                                        width: 40px;
+                                                        height: 35px;
+                                                        margin: 0 auto;
+
+                                                        color: #fff;
+                                                        border: solid 1px #f6f6f8;
+                                                        background-color: $dark-text;
+                                                    }
+
+                                                    .theme, .date {
+                                                        @include text(400, 14px, $hind, .1em, 24px, uppercase);
+
+                                                        display: block;
+                                                        
+                                                        color: $gray-text;
+                                                    }
+
+                                                    .theme {
+                                                        margin-top: 51px;
+                                                    }
+
+                                                    h4 {
+                                                        @include text(600, 20px, $montserrat, .06em, 28px, uppercase);
+
+                                                        margin-top: 4px;
+
+                                                        color: $dark-text;
+                                                    }
+
+                                                    .date {
+                                                        margin-top: 7px;
+                                                    }
+
+                                                    .inner {
+                                                        @include text(300, 15px, $hind, .095em, 28px);
+
+                                                        margin-top: 14px;
+                                                    }
+
+                                                    button {
+                                                        @include text(500, 14px, $hind, .2em, null, uppercase);
+
+                                                        width: 126px;
+                                                        height: 30px;
+                                                        margin: 30px 0 41px;
+
+                                                        color: $dark-text;
+                                                        border: solid 1px #d7d7d7;
+                                                        border-width: 0 1px;
+                                                        outline: none;
+                                                        background: none;
+
+                                                            &:hover{
+                                                                 color: $dark-text;
+                                                            }
+
+                                                            &:active {
+                                                                color: $hover-gray;
+                                                                border: none;
+
+                                                                    & span {
+                                                                        padding: 8px 0;
+
+                                                                        border: solid 1px #d7d7d7;
+                                                                        border-width: 1px 0;
+                                                                    }
+                                                            }
+                                                    }
+                                            }
+
+                                            .social {
+                                                @include flex-box(row, center, space-between);
+
+                                                height: 59px;
+                                                padding: 0 20px 0 10px;
+
+                                                color: $gray-text;
+                                                border-top: solid 1px #f7f7f7;
+
+                                                    .comments {
+                                                        @include text(400, 14px, $hind, .1em, 24px, uppercase);
+
+                                                        padding: 0 10px;
+
+                                                        color: $gray-text;
+
+                                                            &:hover {
+                                                                color: #65a3cb;
+                                                                    &  i {
+                                                                        color: #65a3cb;
+                                                                    }
+                                                            }
+                                                    }
+
+                                                    a{
+
+                                                             i {
+                                                                padding: 20px 8px;
+
+                                                                color: $dark-icons;
+                                                                font-size: 15px;
+
+                                                                    &:hover {
+                                                                        color: #65a3cb;
+                                                                    }
+                                                            }
+                                                    }
+                                            }
+
+                                    }
+
+                                    .type-1{
+
+                                    }
+
+                                    .type-2 {
+                                        height: 513px;
+                                    }
+
+                                    .type-3.content-item{
+
+                                        .hashtag {
+                                            top: 237px;
+                                        }
+
+                                    }
+
+                                    article.type-4{
+                                        border-color: #333;
+                                        background: $dark-bg;
+
+                                            &:hover{
+                                                box-shadow: 0 0 20px #333;
+                                            }
+
+                                            div.main{
+
+                                                .hashtag {
+                                                    color: dark-bg;
+                                                    background: #fff;
+                                                }
+
+                                                .inner {
+                                                    font-size: 17px;
+
+                                                    margin-top: 52px;
+
+                                                    color: #fff;
+                                                }
+
+                                                .name {
+                                                    @include text(400, 14px, $hind, .1em, null, uppercase);
+
+                                                    display: block;
+
+                                                    margin: 25px 0 30px;
+
+                                                    color: $gray-text;
+                                                }
+                                            }
+                                    }
+
+                                    .post-1, .post-2, .post-7 {
+                                        margin-bottom: 29px;
+                                    }
+
+                                    .post-3.content-item {
+                                        background: url(../img/skater.png) no-repeat bottom;
+                                        background-size: 101%;
+
+                                            span.theme {
+                                                margin-top: 35px;
+                                            }
+                                    }
+
+                                    .post-4, .post-11, .post-12 {
+                                        margin-bottom: 46px;
+                                    }
+
+                                    .post-5.content-item {
+                                        margin-bottom: 45px;
+                                    }
+
+                                    .post-6.content-item {
+
+                                        span.theme{
+                                            margin-top: 35px;
+                                        }
+
+                                        .social{
+                                            margin-top: 31px;
+                                        }
+                                    }
+
+                                    .post-8.content-item {
+                                        margin-bottom: 47px;
+
+                                            .image{
+
+                                                div {
+                                                    display: inline-block;
+
+                                                    width: 177.77px;
+                                                    height: 126px;
+                                                    margin: 0 2px 2px 0;
+
+                                                    background: #fff;
+
+                                                        &:nth-child(2n){
+                                                            margin-right: 0;
+                                                        }
+                                                }
+                                            }
+                                    }
+
+                                    .post-9.content-item {
+                                        height: 175px;
+                                        margin-bottom: 46px;
+
+                                            .main {
+                                                @include flex-box(row, baseline, center);
+
+                                                    a {
+                                                        text-decoration: underline;
+
+                                                            &:hover {
+                                                                text-decoration: none;
+
+                                                                color: $hover-gray;
+                                                            }
+                                                    }
+                                            }
+                                    }
+
+                                    .post-10.content-item {
+                                        height: 287px;
+                                    }
+
+                                    .post-13.content-item {
+                                        height: 452px;
+
+                                            .round {
+                                                display: inline-block;
+
+                                                width: 135px;
+                                                height: 135px;
+                                                margin-top: 20px;
+
+                                                border-radius: 67px;
+                                                background: $gray-text;
+                                            }
+                                    }
+                            }
+                    }
+            }
+
+            footer {
+                position: absolute;
+                bottom: 0;
+
+                min-width: 100%;
+                height: 412px;
+
+                letter-spacing: .09em;
+
+                color: #f9f9fb;
+                background-color: #212429;
+
+                    .wrapper {
+                        @include flex-box(row, null, space-between);
+
+                        top: 0;
+
+                        height: 100%;
+                        padding-bottom: 41px;
+
+                            .column {
+                                padding: 60px 0;
+
+                                    h5 {
+                                        @include text(600, 16px, $montserrat, .06em, null, uppercase);
+
+                                        margin-top: -4px;
+                                    }
+
+                                    .content {
+                                        line-height: 0;
+
+                                        width: 100%;
+                                        height: 207px;
+
+                                             p {
+                                                @include text(300, 15px, $hind, null);
+
+                                                margin-bottom: 4px;
+                                            }
+
+                                            .sign {
+                                                @include text(400, 36.05px, $figure, .012em, null);
+
+                                                position: relative;
+
+                                                width: 100%;
+                                                height: 147px;
+
+                                                background-color: #3a3c49;
+
+                                                    span {
+                                                        position: absolute;
+                                                        right: 18px;
+                                                        bottom: 7px;
+
+                                                        transform: rotate(-9deg);
+                                                    }
+                                            }
+                                    }
+                            }
+
+                            .twitter{
+
+                                .twitts {
+                                        font: 300 14px 'Hind', sans-serif;
+
+                                        margin-bottom: 24px;
+                                        padding-left: 22px;
+
+                                            .login {
+                                                @include text(300, 14px, $hind, .092em, 28px);
+
+                                                
+                                                display: inline-block;
+
+                                                margin-bottom: 9px;
+                                            }
+
+                                            &:before {
+                                                font-family: FontAwesome;
+
+                                                margin-left: -22px;
+
+                                                content: '\f099';
+                                            }
+
+                                            a:hover {
+                                                color: #1da1f2;
+                                            }
+                                    }
+                            }
+
+                            .instagram{
+
+                                     .content {
+                                        height: 200px;
+
+                                        letter-spacing: 0;
+
+                                            a {
+                                                display: inline-block;
+
+                                                width: 118.6px;
+                                                height: 98px;
+                                                margin: 0 2px 2px 0;
+
+                                                background: #fff;
+
+                                                    &:hover{
+                                                        background: url(../img/icons/zoom.png) no-repeat center rgba(255,255,255,0.8);
+                                                        background-size: 100%;
+                                                    }
+
+                                                    &:nth-child(3n) {
+                                                        margin: 0 0 2px 0;
+                                                    }
+                                            }
+                                    }
+                            }
+
+                            .comments {
+                                @include text( 300, 14px, $open-sans, .092em, 24px);
+
+                                    .content{
+
+                                        .comment {
+                                            line-height: 24px;
+
+                                            padding: 23px 0 18px 0;
+
+                                            border-top: solid 1px #ddd;
+
+                                                &:first-child {
+                                                    padding-top: 0;
+
+                                                    border: none;
+                                                }
+
+                                                .login {
+                                                    display: inline-block;
+
+                                                    margin-bottom: 11px;
+                                                }
+
+                                                p {
+                                                    line-height: 24px;
+
+                                                        a:hover{
+                                                            color: $hover-gray;
+                                                        }
+                                                }
+                                        }
+                                    }
+                            }
+                    }
+
+                    footer {
+                        @include text(300, 14px, $hind, .1em, 41px, uppercase);
+
+                        width: 100%;
+                        height: 41px;
+
+                        text-align: center;
+
+                        color: #747577;
+                        background: #17191c;
+
+                            a {
+                                color: #747577;
+
+                                    &:before {
+                                        margin: 0 14px;
+
+                                        content: 'i';
+                                    }
+                            }
+                    }
+            }
+    }
+}
